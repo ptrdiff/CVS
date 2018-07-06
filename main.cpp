@@ -43,7 +43,7 @@ int startWebcamMonitoring(cv::VideoCapture& vid, const float arucoSqureDimension
     nikita::FanucModel robot;
     const cv::Mat p6 = robot.fanucForwardTask({ 0., 0., 0., 0., -90., 0. });
 
-    while (true)
+    while (std::cin.get() != 'q')
     {
         if (!vid.read(frame))
         {
@@ -62,13 +62,7 @@ int startWebcamMonitoring(cv::VideoCapture& vid, const float arucoSqureDimension
                     robot.getToSixth();
             std::cout << res.at<double>(0, 3) << ' ' << res.at<double>(1, 3) << ' ' <<res.at<double>(2, 3) << '\n';
         }
-        cv::imshow("Webcam", frame);
-        if (cv::waitKey(1) == 27)
-        {
-            break;
-        }
     }
-    cv::destroyWindow("Webcam");
     return 0;
 }
 
