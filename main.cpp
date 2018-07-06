@@ -38,8 +38,6 @@ int startWebcamMonitoring(cv::VideoCapture& vid, const float arucoSqureDimension
     std::vector<cv::Vec3d> rotationVectors, translationVectors;
     std::vector<int> markerIds;
 
-    cv::namedWindow("Webcam", CV_WINDOW_AUTOSIZE);
-
     nikita::FanucModel robot;
     const cv::Mat p6 = robot.fanucForwardTask({ 0., 0., 0., 0., -90., 0. });
 
