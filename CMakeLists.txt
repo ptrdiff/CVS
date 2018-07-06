@@ -14,5 +14,5 @@ target_link_libraries(CamCalibWI ${OpenCV_LIBS})
 add_library(FanucModel STATIC FanucModel/RoboModelGeneral/RoboModelGeneral.cpp FanucModel/FanucModel.cpp)
 target_link_libraries(FanucModel ${OpenCV_LIBS})
 
-add_executable(ComputerVisionSystem main.cpp)
+add_library(ComputerVisionSystem CVS.cpp)
 target_link_libraries(ComputerVisionSystem ${OpenCV_LIBS} CamCalibWI ArucoMarker FanucModel)
